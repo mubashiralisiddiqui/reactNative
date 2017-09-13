@@ -8,9 +8,6 @@ const AppHeader = () => {
         Container:{
             marginTop:10
         },
-        Header:{
-
-        }
     }
     return (
         <Container style={style.Container}>
