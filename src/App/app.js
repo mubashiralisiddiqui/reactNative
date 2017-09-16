@@ -2,9 +2,7 @@
 import React, { Component } from 'react';
 import { View, TextInput, Text, TouchableHighlight, Image, StyleSheet } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-import { AppHeader, AppForm } from '../components';
-import Welcome from '../components/welcome/welcome';
-
+import { AppHeader, AppForm,UserProfile } from '../components';
 
 export default class App extends Component {
   static navigationOptions={
@@ -17,7 +15,6 @@ export default class App extends Component {
         <View>
          <AppHeader/>
          <AppForm welcomNav={()=>navigate('WelcomeScreen')}/>
-
         </View>
     );
   }
