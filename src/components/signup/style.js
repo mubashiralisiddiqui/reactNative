@@ -7,55 +7,29 @@
         alignContent: 'center'
     },
     item: {
-        width: 360,
-        height: 50,
         margin: 'auto',
-        textAlign: 'center',
         marginTop: 5,
-    },
-    imageItem: {
-        width: 250,
-        height: 120,
-        textAlign: 'center',
-        alignItems: 'center',
-    },
-    textItem: {
-        fontSize: 25,
-        textAlign: 'center',
-        width: 250,
-        height: 36,
-        borderColor: '#d6d7da',
     },
     nameInputITem: {
+
         width: 360,
         height: 50,
         marginTop: 5,
-        textAlign: 'center',
         marginTop: 35,
     },
     passwordInputITem: {
         width: 360,
         height: 50,
         marginTop: 15,
-        textAlign: 'center',
+        
     },
     buttonItem: {
-        width: 360,
         height: 50,
         margin: 'auto',
-        textAlign: 'center',
+      
         marginTop: 20,
     },
-    socialITem: {
-        width: 360,
-        height: 100,
-        margin: 'auto',
-        textAlign: 'center',
-        marginTop: 5,
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        alignContent: 'center'
-    },
+    
     text: {
         fontSize: 25,
         textAlign: 'center',
@@ -79,11 +53,8 @@
     button: {
         width: 360,
         height: 45,
-        color: '#fff',
-        textAlign: 'center',
         backgroundColor: 'rgb(221, 64, 6)',
         borderRadius: 30,
-        textAlign: 'center',
         paddingTop: 'auto'
     },
     buttonText: {
@@ -125,7 +96,6 @@
         width: 360,
         height: 50,
         margin: 'auto',
-        textAlign: 'center',
         marginTop: 5,
         alignItems: 'center',
     }

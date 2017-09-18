@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   AppRegistry,
 } from 'react-native';
-import Navigations from './src/components/AppNavigation/appNavigation'
-
+import Navigations from './src/AppNavigation/appNavigation'
 
 AppRegistry.registerComponent('practice', () => Navigations);

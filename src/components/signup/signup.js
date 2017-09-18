@@ -14,22 +14,21 @@ export default class Home extends React.Component {
     static navigationOptions = {
         header: null
     }
-
     render() {
         const { navigate } = this.props.navigation
 
         return (
             <View style={style.Container}>
-                <View style={style.imageItem}>
+                <View>
                     <Image
                         style={{ width: 120, height: 120 }}
                         source={{ uri: 'https://d30y9cdsu7xlg0.cloudfront.net/png/31505-200.png' }}
                     />
                 </View>
-                <View style={style.textItem}>
+                <View>
                     <Text style={style.text}>React Native</Text>
                 </View>
-                <View style={style.textItem}>
+                <View >
                     <Text style={style.KittenText}>UI Kitten</Text>
                 </View>
                 <View style={style.nameInputITem}>
@@ -40,7 +39,6 @@ export default class Home extends React.Component {
                         placeholder="Name"
                         underlineColorAndroid='transparent'
                         onChangeText={(username) => this.setState({ username })}
-                    //maxLength={40}
                     />
                 </View>
                 <View style={style.passwordInputITem}>
@@ -54,11 +52,11 @@ export default class Home extends React.Component {
                     />
                 </View>
                 <View style={style.buttonItem}>
-                    <TouchableOpacity style={style.button} onPress={()=>navigate('UserProfile')}>
+                    <TouchableOpacity style={style.button} onPress={() => navigate('UserProfile')}>
                         <Text style={style.buttonText}>LOGIN</Text>
                     </TouchableOpacity >
                 </View>
-                <View style={style.socialITem}>
+                <View>
                     <View style={style.image}>
                         <TouchableOpacity >
                             <Image
