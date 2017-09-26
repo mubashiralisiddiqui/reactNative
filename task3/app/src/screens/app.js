@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Text, View, ActivityIndicator, Button } from 'react-native';
 import ActionButton from 'react-native-action-button';
 import { Signup, AppHeader, AppForm, ImageModal, UserProfile, ForgetPassword } from '../components';
+// import Navigation from ''
 import styles from './style'
 export default class app extends Component {
   constructor(props) {

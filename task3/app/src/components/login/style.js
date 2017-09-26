@@ -76,3 +76,28 @@ const style = {
     }
 }
 export default style;
+
+
+
+
+// //signup() {
+//     let obj = {
+//         name: this.state.username,
+//         pasword: this.state.pasword
+//     }
+//     let userArray=[]
+//     userArray.push(obj)
+//     console.log("all user",userArray)
+//     this.setState({users:userArray})
+   
+//     AsyncStorage.setItem('users', JSON.stringify(this.state.users)).then(() => {
+//         console.log("success")
+//         this.setState({ animating: true })
+//             this.props.navigation.navigate('LoginScreen')
+//             ToastAndroid.show('SIGNUP SUCCESSFUL !', ToastAndroid.SHORT);
+//             this.setState({ animating: false })
+//     })
+//     .catch((err)=>{
+//         console.log(err)
+//     })
+// }

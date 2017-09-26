@@ -1,17 +1,15 @@
 import React from 'react';
-import { Image, View, Text, TextInput, Button, TouchableHighlight, ToastAndroid, ActivityIndicator, TouchableOpacity, AsyncStorage } from 'react-native';
+import { Image, View, Text, TextInput, Button, ToastAndroid, TouchableHighlight, TouchableOpacity, AsyncStorage } from 'react-native';
 
 import UserProfile from '../userProfile/userProfile';
 import AuthServices from '../../services/services'
 import style from './style';
-let AllUser = []
-export default class Home extends React.Component {
+export default class Login extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             username: 'User Name',
             pasword: 'Password',
-            animating: false,
             users: []
         };
     }
@@ -19,22 +17,18 @@ export default class Home extends React.Component {
         header: null
     }
     componentDidMount() {
-        AsyncStorage.getItem('users', (user) => {
-            if (!user == null) {
-                let users=[];
-                users.push(JSON.parse(user))
-                this.setState({users:user})
-                AllUser.push(JSON.parse(user))
-            }
+        AsyncStorage.getItem('users', (err, user) => {
+            this.setState({ users: JSON.parse(user) })
         })
     }
-    signup() {
-        let nav=this.props.navigation.navigate
+    login() {
         let obj = {
             name: this.state.username,
             pasword: this.state.pasword
         }
-        AuthServices.signup(obj,nav)
+        let nav=this.props.navigation.navigate
+        let users = this.state.users
+        AuthServices.login(obj, nav, users)
     }
     render() {
         const { navigate } = this.props.navigation
@@ -60,19 +54,37 @@ export default class Home extends React.Component {
                         style={style.nameInput}
                         {...this.props}
                         editable={true}
-                        type="password"
                         placeholder="Password"
+                        secureTextEntry={true}
                         underlineColorAndroid='transparent'
                         onChangeText={(pasword) => this.setState({ pasword })}
                     />
-
                     <TouchableOpacity style={style.button}>
-                        <Text style={style.buttonText} onPress={() => this.signup()}>SIGNUP</Text>
+                        <Text style={style.buttonText} onPress={() => this.login()}>LOGIN</Text>
                     </TouchableOpacity >
                 </View>
-
-                <TouchableOpacity style={style.askForAccount} onPress={() => navigate('LoginScreen')}>
-                    <Text style={{ fontSize: 16, marginTop: 20 }}> Already Have An Account ?<Text style={{ fontWeight: 'bold', color: 'black', fontSize: 16 }}>  Login !</Text></Text>
+                <View style={style.socialIconContainer}>
+                    <TouchableOpacity >
+                        <Image
+                            style={style.icons}
+                            source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSb8Ed1pBiZppBpe-EaFPCkXeTga6CW367n3Dld89IeznfVH-kyeEOvteA' }}
+                        />
+                    </TouchableOpacity>
+                    <TouchableOpacity >
+                        <Image
+                            style={style.icons}
+                            source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAn1yX5SKPQK91Vddb03gN8poRKKaea-7hR6ZdkQmwa2frgSrH' }}
+                        />
+                    </TouchableOpacity >
+                    <TouchableOpacity >
+                        <Image
+                            style={style.icons}
+                            source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS73_kc4hKnABULErHXnUK2Pcty3qVhOZUX6vmlQz9M2tWZ8C7xWA' }}
+                        />
+                    </TouchableOpacity >
+                </View>
+                <TouchableOpacity style={style.askForAccount} onPress={() => navigate('signupScreen')}>
+                    <Text style={{ fontSize: 16, marginTop: 20 }}> Dont Have An Account ?<Text style={{ fontWeight: 'bold', color: 'black', fontSize: 16 }}> Signup Now !</Text></Text>
                 </TouchableOpacity>
             </View>
         )

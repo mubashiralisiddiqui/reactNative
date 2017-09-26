@@ -1,18 +1,22 @@
 import React from 'react';
-import { Image, View, Text, TextInput, Button, TouchableOpacity, ScrollView, Container, Modal, TouchableHighlight, ActivityIndicator } from 'react-native';
+import { Image, View, Text, TextInput, Button,AsyncStorage, TouchableOpacity, ScrollView, Container, Modal, TouchableHighlight, ActivityIndicator } from 'react-native';
 import ActionButton from 'react-native-action-button';
+
 import ForgotPassword from '../forgetPassword/forgetPassword';
 import ImageModal from '../model/model';
 import images from './collection'
 import styles from './style';
+
 export default class UserProfile extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             modalVisible: false,
             imageUrl: '',
+            userName:'User'
         }
     }
+    
     setModalVisible(visible) {
         this.setState({ modalVisible: visible });
     }
@@ -32,9 +36,9 @@ export default class UserProfile extends React.Component {
         })
     }
     render() {
+        const {params}=this.props.navigation.state
         return (
             <View Style={styles.Container}>
-
                 <ScrollView>
                     <ImageModal
                         modalVisible={this.state.modalVisible}
@@ -46,13 +50,11 @@ export default class UserProfile extends React.Component {
                             style={styles.profileImage}
                             source={{ uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIp6ER9IdJSX9FDLnGEz4VwYCG5xgSawa6ek0xB_RbCQhyRsBH" }}
                         />
-                        <Text style={styles.imageText}>Helen Gilbert</Text>
-                        <TouchableOpacity style={styles.button}>
-                            <Text style={styles.buttonText}>FOLLOW</Text>
+                        <Text style={styles.imageText}>ali</Text>
+                        <TouchableOpacity style={styles.button}onPress={()=>this.props.navigation.navigate('LoginScreen')}>
+                            <Text style={styles.buttonText}>LOGOUT</Text>
                         </TouchableOpacity >
                     </View>
-                    {console.log("animating==>",this.props.animating)}
-                    
                     <View style={styles.aboutUser1}>
                         <Text style={styles.galleryTextTitle}>86</Text>
                         <Text style={styles.galleryTextTitle}>22.1k</Text>
